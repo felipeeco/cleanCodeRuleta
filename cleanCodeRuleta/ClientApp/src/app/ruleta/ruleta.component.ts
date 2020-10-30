@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -14,11 +14,14 @@ export class RuletaComponent implements OnInit {
   showBottons: boolean = true;
   showForm: boolean = false;
   betColor: boolean = true;
+  formNumberMax: boolean = false;
+  formMoneyMax: boolean = false;
   constructor(private userService: UserService, private router: Router) {
     this.formLogin = new FormGroup
       ({
-        'number': new FormControl(0),
-        'money': new FormControl(0)
+        'number': new FormControl(0, [Validators.required, Validators.max(36)]),
+        'money': new FormControl(0, [Validators.required, Validators.max(10000)]),
+        'color': new FormControl(false)
       });
   }
   ngOnInit() {
@@ -31,5 +34,12 @@ export class RuletaComponent implements OnInit {
     this.showBottons = false;
     this.showForm = true;
     this.betColor = false;
+  }
+  submit() {
+    if (this.formLogin.valid == true) {
+      this.userService.saveData(this.formLogin.value).subscribe((data: any) => {
+
+      });
+    }
   }
 }

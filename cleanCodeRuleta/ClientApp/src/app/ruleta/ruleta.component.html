@@ -21,18 +21,24 @@
             </div>
           </div>
           <div class="super-box-form" *ngIf="showForm">
-            <form [formGroup]="formLogin">
+            <form (ngSubmit)="submit()" [formGroup]="formLogin">
               <div class="row">
                 <div class="col-md-6">
                   <div class="single_input wow">
                     <label>Número</label>
                     <input type="number" max="10000" class="form-control" formControlName="number" />
+                    <div class="validacion-formulario" *ngIf="formLogin.controls['number'].errors?.max">
+                      La cantidad maxima es 36
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="single_input wow">
                     <label>Dinero</label>
                     <input type="number" max="36" class="form-control" formControlName="money" />
+                    <div class="validacion-formulario" *ngIf="formLogin.controls['money'].errors?.max">
+                      La cantidad maxima es 10000
+                    </div>
                   </div>
                 </div>
                 <div class="col-lg-12 box-ruleta">
