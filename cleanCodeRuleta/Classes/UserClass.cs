@@ -12,6 +12,8 @@ namespace cleanCodeRuleta.Classes
 		public DateTime dataCreated { get; set; }
 		public int number { get; set; }
 		public int money { get; set; }
-		
+		public int randomNumber { get; set; }
+		public int result { get; set; }
+
 	}
 }

@@ -12,8 +12,30 @@ namespace cleanCodeRuleta.Controllers
 	[ApiController]
 	public class UserController : Controller
 	{
+
+
+		private int GenerateRandomNumber()
+		{
+			Random Rn = new Random();
+			int RandomNumerResult = Rn.Next(25);
+
+			return RandomNumerResult;
+		}
+
+		private int Result(UserClass userClass)
+		{
+			int BetNumber;
+
+			if (userClass.number == userClass.money)
+			{
+				BetNumber = userClass.money 
+			}
+
+			
+		}
+
 		[HttpPost]
-		[Route("usuario/ruleta")]
+		[Route("usuario/save-data")]
 		public int SaveData([FromBody] UserClass userClass)
 		{
 			int answer = 0;
@@ -27,9 +49,8 @@ namespace cleanCodeRuleta.Controllers
 						UserModel.DateCreated = DateTime.Now;
 						UserModel.Number = userClass.number;
 						UserModel.Money = userClass.money;
-						Random Rn = new Random();
-						int RandomNumerResult = Rn.Next(25);
-						UserModel.RadomNumber = RandomNumerResult;
+						UserModel.RadomNumber = GenerateRandomNumber();
+						UserModel.Result = 
 						db.Add(UserModel);
 						db.SaveChanges();
 						transaccion.Complete();

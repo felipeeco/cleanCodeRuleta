@@ -10,5 +10,6 @@ namespace cleanCodeRuleta.Models
         public int? Number { get; set; }
         public int? Money { get; set; }
         public int? RadomNumber { get; set; }
+        public int? Result { get; set; }
     }
 }
