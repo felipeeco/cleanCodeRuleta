@@ -24,7 +24,7 @@ namespace cleanCodeRuleta.Controllers
 			int Total = 0;
 			if (userClass.number == userClass.randomNumber)
 			{
-				Total = userClass.number * 5;
+				Total = userClass.money * 5;
 			}
 
 			return Total;
@@ -47,7 +47,7 @@ namespace cleanCodeRuleta.Controllers
 				RandomNumberStatus = "Odd";
 			}
 			if (UserNumberStatus == RandomNumberStatus){
-				Total = (int)(float)(userClass.number * 1.8);
+				Total = (int)(float)(userClass.money * 1.8);
 			}
 
 			return Total;
@@ -67,12 +67,15 @@ namespace cleanCodeRuleta.Controllers
 						UserModel.Number = userClass.number;
 						UserModel.Money = userClass.money;
 						UserModel.RadomNumber = GenerateRandomNumber();
-						if(userClass.color){
+						if (userClass.color){
 							UserModel.Result = BetColor(userClass);
+							UserModel.Color = "True";
 						}
 						else {
 							UserModel.Result = BetNumber(userClass);
+							UserModel.Color = "False";
 						}
+						UserModel.Id = UserModel.Id + 1;
 						db.Add(UserModel);
 						db.SaveChanges();
 						userClass.id = UserModel.Id;

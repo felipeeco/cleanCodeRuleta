@@ -36,9 +36,10 @@ export class RuletaComponent implements OnInit {
     this.betColor = false;
   }
   submit() {
+    this.formLogin.controls["color"].setValue(this.betColor);
     if (this.formLogin.valid == true) {
       this.userService.saveData(this.formLogin.value).subscribe((data: any) => {
-
+        alert("exitoso")
       });
     }
   }

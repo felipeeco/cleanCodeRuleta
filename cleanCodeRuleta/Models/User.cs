@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace cleanCodeRuleta.Models
 {
@@ -12,6 +11,6 @@ namespace cleanCodeRuleta.Models
         public int? Money { get; set; }
         public int? RadomNumber { get; set; }
         public int? Result { get; set; }
-        public string Color { get; set; } 
+        public string Color { get; set; }
     }
 }

@@ -30,6 +30,9 @@
                     <div class="validacion-formulario" *ngIf="formLogin.controls['number'].errors?.max">
                       La cantidad maxima es 36
                     </div>
+                    <div class="validacion-formulario" *ngIf="formLogin.controls['number'].errors?.required">
+                      Este campo es obligatorio
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -38,6 +41,9 @@
                     <input type="number" max="36" class="form-control" formControlName="money" />
                     <div class="validacion-formulario" *ngIf="formLogin.controls['money'].errors?.max">
                       La cantidad maxima es 10000
+                    </div>
+                    <div class="validacion-formulario" *ngIf="formLogin.controls['money'].errors?.required">
+                      Este campo es obligatorio
                     </div>
                   </div>
                 </div>
