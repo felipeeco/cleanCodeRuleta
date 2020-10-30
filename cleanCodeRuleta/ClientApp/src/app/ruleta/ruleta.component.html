@@ -1,0 +1,159 @@
+<div data-scroll-index="0" class="get_in_tauch_area form-login">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="section_title text-center mb-90">
+          <h3 class="wow">Ruleta</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="touch_form">
+
+
+          <!--<form (ngSubmit)="login()" [formGroup]="formLogin">
+            <div class="row">
+
+
+              <div class="col-md-6">
+                <div class="single_input wow">
+
+
+                  <div class="validacion-formulario" *ngIf="formLogin.controls['name'].touched && formLogin.controls['name'].errors?.required || submitNameRequired && formLogin.controls['name'].errors?.required">
+                    Escriba su nombre
+                  </div>
+
+
+                  <div class="validacion-formulario" *ngIf="formLogin.controls['name'].errors?.maxlength || submitNameMaxLength && formLogin.controls['name'].errors?.maxlength">
+                    Su nombre no puede superar la longitud de 50 caracteres
+                  </div>
+
+
+                  <input type="text" formControlName="name" placeholder="Nombre">
+
+                </div>
+              </div>
+
+
+              <div class="col-md-6">
+                <div class="single_input wow">
+
+                  <div class="validacion-formulario" *ngIf="formLogin.controls['lastname'].touched && formLogin.controls['lastname'].errors?.required || submitLastNameRequired && formLogin.controls['lastname'].errors?.required">
+                    Escriba su apellido
+                  </div>
+
+                  <div class="validacion-formulario" *ngIf="formLogin.controls['lastname'].errors?.maxlength || submitLastMaxLength && formLogin.controls['lastname'].errors?.maxlength">
+                    Su apellido no puede superar la longitud de 50 caracteres
+                  </div>
+
+                  <input type="text" formControlName="lastname" placeholder="Apellido">
+
+                </div>
+              </div>
+
+
+              <div class="col-md-12">
+                <div class="single_input wow">
+
+                  <div class="validacion-formulario" *ngIf="formLogin.controls['email'].touched && formLogin.controls['email'].errors?.required || submitEmailRequired && formLogin.controls['email'].errors?.required">
+                    Escriba su correo electrónico
+                  </div>
+
+                  <div class="validacion-formulario" *ngIf="formLogin.controls['email'].errors?.maxlength || submitEmailMaxLength && formLogin.controls['email'].errors?.maxlength">
+                    Su correo electrónico no puede superar la longitud de 50 caracteres
+                  </div>
+
+                  <div class="validacion-formulario" *ngIf="formLogin.controls['email'].errors?.pattern || submitEmailValid && formLogin.controls['email'].errors?.pattern">
+                    Escriba un correo electrónico valido
+                  </div>
+
+                  <div class="validacion-formulario" *ngIf="submitEmailRepeat && touchedEmailRepeat">
+                    Ya existe el correo electrónico
+                  </div>
+
+                  <input type="text" (keydown)="touchedEmailRepeatFunction()" (keydown.space)="$event.preventDefault();" formControlName="email" placeholder="Correo electrónico">
+
+                </div>
+              </div>
+
+
+              <div class="col-md-12 caja-password">
+                <div class="input-group wow">
+                  <div class="validacion-formulario" *ngIf="formLogin.controls['password'].touched && formLogin.controls['password'].errors?.required || submitPasswordRequired && formLogin.controls['password'].errors?.required">
+                    Debe escribir una contraseña
+                  </div>
+
+                  <div class="validacion-formulario" *ngIf="formLogin.controls['password'].hasError('minlength') || submitPasswordMinLength && formLogin.controls['password'].hasError('minlength')">
+                    La contraseña debe contener al menos 8 caracteres
+                  </div>
+
+                  <div class="validacion-formulario" *ngIf="formLogin.controls['password'].errors?.maxlength || submitPasswordMaxLength && formLogin.controls['password'].errors?.maxlength">
+                    Su contraseña no puede superar la longitud de 50 caracteres
+                  </div>
+
+                  <input id="input-password" [type]="cambiarInputVisibilidadType ? 'password' : 'text'" formControlName="password" placeholder="Contraseña">
+
+                  <div class="input-group-append" (click)="cambiarInputVisibilidad()">
+                    <span class="input-group-text ajuste-ojo-password">
+                      <i [ngClass]="cambiarInputVisibilidadClass"></i>
+                    </span>
+                  </div>
+
+                </div>
+              </div>
+
+
+
+              <div class="col-md-6 caja-date">
+                <div class="single_input wow">
+
+                  <div class="validacion-formulario" *ngIf="formLogin.controls['birthday'].touched && formLogin.controls['birthday'].errors?.required || submitDateRequired && formLogin.controls['birthday'].errors?.required">
+                    Debe seleccionar su fecha de nacimiento
+                  </div>
+
+                  <div class="validacion-formulario" *ngIf="mayorDeEdad">
+                    Debe ser mayor de 13 años para poder registrarse
+                  </div>
+
+                  <p class="wow">Fecha de nacimiento:</p>
+
+                  <input type="date" formControlName="birthday" placeholder="Fecha de nacimiento">
+
+                </div>
+              </div>
+
+
+              <div class="col-md-6 caja-genero">
+                <div class="form-group">
+
+                  <div class="validacion-formulario" *ngIf="formLogin.controls['gender'].touched && formLogin.controls['gender'].errors?.required || submitGenderRequired && formLogin.controls['gender'].errors?.required">
+                    Debe seleccionar su genero
+                  </div>
+
+                  <p class="wow">Seleccione su genero:</p>
+
+                  <select class="form-control" id="id-caja-genero" formControlName="gender">
+                    <option value="Woman">Seleccione</option>
+                    <option value="Woman">Mujer</option>
+                    <option value="Man">Hombre</option>
+                    <option value="Other">Otro</option>
+                  </select>
+                </div>
+              </div>
+
+
+
+
+              <div class="col-lg-12">
+                <div class="submit_btn wow">
+                  <button class="boxed-btn3" type="submit">Registrarte</button>
+                </div>
+              </div>
+            </div>
+          </form>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
