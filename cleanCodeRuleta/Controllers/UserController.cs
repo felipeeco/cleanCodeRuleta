@@ -14,8 +14,9 @@ namespace cleanCodeRuleta.Controllers
 	{
 		[HttpPost]
 		[Route("usuario/ruleta")]
-		public UserClass Ruleta([FromBody] UserClass userClass)
+		public int SaveData([FromBody] UserClass userClass)
 		{
+			int answer = 0;
 			try
 			{
 				using (cleanCodeRuletaDBContext db = new cleanCodeRuletaDBContext())
@@ -26,15 +27,22 @@ namespace cleanCodeRuleta.Controllers
 						UserModel.DateCreated = DateTime.Now;
 						UserModel.Number = userClass.number;
 						UserModel.Money = userClass.money;
-
+						Random Rn = new Random();
+						int RandomNumerResult = Rn.Next(25);
+						UserModel.RadomNumber = RandomNumerResult;
+						db.Add(UserModel);
+						db.SaveChanges();
+						transaccion.Complete();
+						answer = 1;
 					}
 				}
 			}
 			catch (Exception)
 			{
 
-				throw;
+				answer = 2;
 			}
+			return answer;
 		}
 	}
 }

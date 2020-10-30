@@ -9,5 +9,6 @@ namespace cleanCodeRuleta.Models
         public DateTime? DateCreated { get; set; }
         public int? Number { get; set; }
         public int? Money { get; set; }
+        public int? RadomNumber { get; set; }
     }
 }
