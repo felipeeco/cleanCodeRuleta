@@ -9,58 +9,40 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <div class="touch_form">
-
-
-          <form>
+        <div class="touch_form form-box">
+          <div class="bottons-box" *ngIf="showBottons">
             <div class="row">
-
-
-              <div class="col-md-6">
-                <div class="single_input wow">
-
-
-                  <!--<div class="validacion-formulario" *ngIf="formLogin.controls['name'].touched && formLogin.controls['name'].errors?.required || submitNameRequired && formLogin.controls['name'].errors?.required">
-                    Escriba su nombre
-                  </div>
-
-
-                  <div class="validacion-formulario" *ngIf="formLogin.controls['name'].errors?.maxlength || submitNameMaxLength && formLogin.controls['name'].errors?.maxlength">
-                    Su nombre no puede superar la longitud de 50 caracteres
-                  </div>-->
-
-
-                  <input type="number" formControlName="number" placeholder="Número">
-
-                </div>
+              <div class="col-md-6 text-center">
+                <button (click)="functionBetColor()" class="btn btn-primary" type="submit">Jugar por color</button>
               </div>
-
-
-              <div class="col-md-6">
-                <div class="single_input wow">
-
-                  <!--<div class="validacion-formulario" *ngIf="formLogin.controls['lastname'].touched && formLogin.controls['lastname'].errors?.required || submitLastNameRequired && formLogin.controls['lastname'].errors?.required">
-                    Escriba su apellido
-                  </div>
-
-                  <div class="validacion-formulario" *ngIf="formLogin.controls['lastname'].errors?.maxlength || submitLastMaxLength && formLogin.controls['lastname'].errors?.maxlength">
-                    Su apellido no puede superar la longitud de 50 caracteres
-                  </div>-->
-
-                  <input type="number" formControlName="money" placeholder="Dinero">
-
-                </div>
-              </div>
-
-
-
-              <div class="col-lg-12">
-                <div class="submit_btn wow">
-                  <button class="boxed-btn3" type="submit">Jugar ruleta</button>
-                </div>
+              <div class="col-md-6 text-center">
+                <button (click)="functionBetNumber()" class="btn btn-info" type="submit">Jugar por número</button>
               </div>
             </div>
-          </form>
+          </div>
+          <div class="super-box-form" *ngIf="showForm">
+            <form [formGroup]="formLogin">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="single_input wow">
+                    <label>Número</label>
+                    <input type="number" max="10000" class="form-control" formControlName="number" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="single_input wow">
+                    <label>Dinero</label>
+                    <input type="number" max="36" class="form-control" formControlName="money" />
+                  </div>
+                </div>
+                <div class="col-lg-12 box-ruleta">
+                  <div class="submit_btn wow">
+                    <button class="btn btn-success" type="submit">Jugar ruleta</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

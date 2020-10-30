@@ -14,3 +14,12 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.box-ruleta {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.form-box {
+    margin-top: 30px;
+}
