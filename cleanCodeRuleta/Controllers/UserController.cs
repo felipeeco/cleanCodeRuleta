@@ -12,8 +12,6 @@ namespace cleanCodeRuleta.Controllers
 	[ApiController]
 	public class UserController : Controller
 	{
-
-
 		private int GenerateRandomNumber()
 		{
 			Random Rn = new Random();
@@ -21,24 +19,43 @@ namespace cleanCodeRuleta.Controllers
 
 			return RandomNumerResult;
 		}
-
-		private int Result(UserClass userClass)
+		private int BetNumber(UserClass userClass)
 		{
-			int BetNumber;
-
-			if (userClass.number == userClass.money)
+			int Total = 0;
+			if (userClass.number == userClass.randomNumber)
 			{
-				BetNumber = userClass.money 
+				Total = userClass.number * 5;
 			}
 
-			
+			return Total;
 		}
+		private int BetColor(UserClass userClass)
+		{
+			int Total = 0;
+			string UserNumberStatus = "Empty";
+			string RandomNumberStatus = "Empty";
+			if (userClass.number % 2 == 0){
+				UserNumberStatus = "Even";
+			}
+			else{
+				UserNumberStatus = "Odd";
+			}
+			if (userClass.randomNumber % 2 == 0){
+				RandomNumberStatus = "Even";
+			}
+			else{
+				RandomNumberStatus = "Odd";
+			}
+			if (UserNumberStatus == RandomNumberStatus){
+				Total = (int)(float)(userClass.number * 1.8);
+			}
 
+			return Total;
+		}
 		[HttpPost]
 		[Route("usuario/save-data")]
-		public int SaveData([FromBody] UserClass userClass)
+		public UserClass SaveData([FromBody] UserClass userClass)
 		{
-			int answer = 0;
 			try
 			{
 				using (cleanCodeRuletaDBContext db = new cleanCodeRuletaDBContext())
@@ -50,20 +67,25 @@ namespace cleanCodeRuleta.Controllers
 						UserModel.Number = userClass.number;
 						UserModel.Money = userClass.money;
 						UserModel.RadomNumber = GenerateRandomNumber();
-						UserModel.Result = 
+						if(userClass.color){
+							UserModel.Result = BetColor(userClass);
+						}
+						else {
+							UserModel.Result = BetNumber(userClass);
+						}
 						db.Add(UserModel);
 						db.SaveChanges();
+						userClass.id = UserModel.Id;
 						transaccion.Complete();
-						answer = 1;
+
 					}
 				}
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-
-				answer = 2;
+				string error = ex.ToString();
 			}
-			return answer;
+			return userClass;
 		}
 	}
 }
