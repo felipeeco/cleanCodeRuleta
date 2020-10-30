@@ -67,6 +67,7 @@ namespace cleanCodeRuleta.Controllers
 						UserModel.Number = userClass.number;
 						UserModel.Money = userClass.money;
 						UserModel.RadomNumber = GenerateRandomNumber();
+						userClass.randomNumber = (int)UserModel.RadomNumber;
 						if (userClass.color){
 							UserModel.Result = BetColor(userClass);
 							UserModel.Color = "True";
@@ -75,12 +76,11 @@ namespace cleanCodeRuleta.Controllers
 							UserModel.Result = BetNumber(userClass);
 							UserModel.Color = "False";
 						}
-						//UserModel.Id = UserModel.Id++;
 						db.Add(UserModel);
 						db.SaveChanges();
+						userClass.result = (int)UserModel.Result;
 						userClass.id = UserModel.Id;
 						transaccion.Complete();
-
 					}
 				}
 			}

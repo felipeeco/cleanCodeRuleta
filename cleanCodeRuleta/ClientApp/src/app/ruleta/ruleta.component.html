@@ -57,8 +57,13 @@
           </div>
           <div class="box-result" *ngIf="showResult">
             <ul>
+              <li>ID de apuesta: {{ finalResult.id }}</li>
               <li>Dinero ganado: {{ finalResult.result }}</li>
+              <li>Dinero apostado: {{ finalResult.money }}</li>
+              <li>Número apostado: {{ finalResult.number }}</li>
+              <li>Número de la ruleta: {{ finalResult.randomNumber }}</li>
             </ul>
+            <button class="btn btn-success" (click)="refresh()" type="submit">Volver a jugar</button>
           </div>
         </div>
       </div>
