@@ -30,8 +30,6 @@ namespace cleanCodeRuleta.Models
         {
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Color).HasMaxLength(50);
 
                 entity.Property(e => e.DateCreated).HasColumnType("datetime");

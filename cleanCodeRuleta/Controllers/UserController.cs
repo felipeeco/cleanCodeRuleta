@@ -75,7 +75,7 @@ namespace cleanCodeRuleta.Controllers
 							UserModel.Result = BetNumber(userClass);
 							UserModel.Color = "False";
 						}
-						UserModel.Id = UserModel.Id + 1;
+						//UserModel.Id = UserModel.Id++;
 						db.Add(UserModel);
 						db.SaveChanges();
 						userClass.id = UserModel.Id;

@@ -13,9 +13,11 @@ export class RuletaComponent implements OnInit {
   formLogin: FormGroup;
   showBottons: boolean = true;
   showForm: boolean = false;
+  showResult: boolean = false;
   betColor: boolean = true;
   formNumberMax: boolean = false;
   formMoneyMax: boolean = false;
+  finalResult: any;
   constructor(private userService: UserService, private router: Router) {
     this.formLogin = new FormGroup
       ({
@@ -39,7 +41,10 @@ export class RuletaComponent implements OnInit {
     this.formLogin.controls["color"].setValue(this.betColor);
     if (this.formLogin.valid == true) {
       this.userService.saveData(this.formLogin.value).subscribe((data: any) => {
-        alert("exitoso")
+        this.showForm = false;
+        this.showResult = true;
+        this.finalResult = data;
+        console.log(this.finalResult);
       });
     }
   }

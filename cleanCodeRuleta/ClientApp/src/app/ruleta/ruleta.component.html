@@ -55,6 +55,11 @@
               </div>
             </form>
           </div>
+          <div class="box-result" *ngIf="showResult">
+            <ul>
+              <li>Dinero ganado: {{ finalResult.result }}</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
