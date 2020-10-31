@@ -15,7 +15,7 @@ namespace cleanCodeRuleta.Controllers
 		private int GenerateRandomNumber()
 		{
 			Random Rn = new Random();
-			int RandomNumerResult = Rn.Next(25);
+			int RandomNumerResult = Rn.Next(36);
 
 			return RandomNumerResult;
 		}
@@ -88,6 +88,7 @@ namespace cleanCodeRuleta.Controllers
 			{
 				string error = ex.ToString();
 			}
+
 			return userClass;
 		}
 	}
